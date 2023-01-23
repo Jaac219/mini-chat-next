@@ -1,3 +1,5 @@
-export const ChatContainer = ()=>{
+const ChatContainer = ()=>{
   return <>Hello</>
 }
+
+export default ChatContainer
