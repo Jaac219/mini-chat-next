@@ -1,13 +1,7 @@
-import ServerLayout from "@/layouts/Server"
-import { useEffect } from "react";
+import ServersContainer from "@/containers/ServersContainer";
 
-const prueba = ()=>{
+export default function prueba(){
   return (
-    // <ServerLayout>
-    //   <></>
-    // </ServerLayout>
-    <children/>
+    <ServersContainer/>
   )
 }
-
-export default prueba

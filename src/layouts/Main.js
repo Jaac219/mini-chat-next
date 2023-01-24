@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar"
 
-const MainLayout = ({ children })=>{
+export default function MainLayout({ children }){
   return (
     <>
       <NavBar/>
@@ -9,5 +9,3 @@ const MainLayout = ({ children })=>{
     </>
   )
 }
-
-export default MainLayout
