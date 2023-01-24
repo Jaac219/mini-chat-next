@@ -1,10 +1,7 @@
-import Sidebar from "@/components/Sidebar";
-
-export default function ServersContainer(){
+export default function ServersContainer({children = []}){
   return (
-  <div style={{display:"flex"}}>
-    <Sidebar />
-    {/* <Chat /> */}
-  </div>
+    <div style={{display:"flex"}}>
+      {children}
+    </div>
   )
 }

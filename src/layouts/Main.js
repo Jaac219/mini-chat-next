@@ -1,10 +1,10 @@
-import NavBar from "@/components/NavBar"
+import NavBarServers from "@/components/NavBarServers"
 
 export default function MainLayout({ children }){
   return (
     <>
-      <NavBar/>
-        {children}
+      <NavBarServers/>
+      {children}
       <footer>This is commons footer</footer>
     </>
   )
