@@ -1,3 +1,4 @@
+import ChannelSms from "@/components/ChannelSms";
 import NavBarServers from "@/components/NavBarServers"; 
 import SidebarChannels from "@/components/SidebarChannels";
 import ServersContainer from "@/containers/ServersContainer";
@@ -31,11 +32,24 @@ const channelsData = [
   {_id: 303, serverId: 3, name: "Channel 12"},
 ]
 
+const channelSmsData = [
+  {msg: "hola user 1", userId: 1, channelId: 101},
+  {msg: "hola desde user 2", userId: 2, channelId: 101},
+  {msg: "como esta user 1", userId: 1, channelId: 101},
+  {msg: "muy bien user 2", userId: 2, channelId: 101},
+  {msg: "me alegra user 1", userId: 1, channelId: 101},
+  {msg: "me alegra user 1", userId: 1, channelId: 201},
+  {msg: "me alegra user 1", userId: 1, channelId: 201},
+  {msg: "me alegra user 1", userId: 1, channelId: 201},
+  {msg: "me alegra user 1", userId: 1, channelId: 201},
+]
+
 export default function prueba(){
   const router = useRouter()
   const { params = [] } = router.query
   const [servers, setServers] = useState([])
   const [channels, setChannels] = useState([])
+  const [channelSms, setChannelSms] = useState([])
 
   useEffect(()=>{
     setServers(serversData)
@@ -48,7 +62,7 @@ export default function prueba(){
     const server = serversData.find((server)=>server._id == serverId)
     if(!server) return
 
-    const channelsInServer = channelsData.filter((channel)=>channel.serverId === server._id)
+    const channelsInServer = channelsData.filter((channel)=>channel.serverId == server._id)
     setChannels(channelsInServer)
     if(channelsInServer.length <= 0) return
 
@@ -57,13 +71,21 @@ export default function prueba(){
     if (!existChannelInServer){
       router.push(`./${serverId}/${channelsInServer[0]._id}`)
     }
+
+    let sms = channelSmsData.filter((sms)=>sms.channelId == channelId)
+    setChannelSms(sms)
   }, [params])
 
   return (
+    // <div className="flex">
+    //   <SideBar servers={servers}/>
+    //   <ChannelBar />
+    //   <ContentContainer />
+    // </div>
     <ServersContainer>
       <NavBarServers servers={servers} />
       <SidebarChannels channels={channels}/>
-      {/* <ChannelSms sms={[]}/> */}
+      <ChannelSms Sms={channelSms}/>
     </ServersContainer>
   )
 }
