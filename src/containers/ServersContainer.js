@@ -1,14 +1,19 @@
 import Icons from "@/components/Icons";
 import Link from "next/link";
 import Image from 'next/legacy/image'
-// import 'next/legacy/image'
+import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
+import useFetchServers from "@/hooks/useFetchServers";
 
+export default function ServersContainer({children, params}){
+  const userId = "cJmxeRS6mHYLcrvXp"
+  const [ servers, loading, error ] = useFetchServers({userId})
 
-export default function ServersContainer({children = [], servers = [], params}){
   return (
     <div className='flex h-screen text-gray-100'>
       <div className='hidden p-3 space-y-2 overflow-auto bg-gray-900 md:block'>
-        <NavLink href='#'>
+        <NavLink href='/'>
           <Icons.Discord className='h-5 w-7' />
         </NavLink>
 
@@ -17,10 +22,10 @@ export default function ServersContainer({children = [], servers = [], params}){
         {servers?.map((server) => (
           <div className="mb-8" key={server._id}>
             <NavLink
-              href={`./${server._id}`}
+              href={`../servers/${server._id}`}
               active={params[0] == server._id}
             >
-              <Image className="rounded-full" layout='fill' src={`/servers/next.png`} alt='' />
+              <Image className="rounded-full" layout='fill' src={`/servers/${server.img}`} alt='' />
             </NavLink>
           </div>
         ))}

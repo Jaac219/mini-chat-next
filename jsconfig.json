@@ -6,6 +6,8 @@
       "@/layouts/*": ["./src/layouts/*"],
       "@/containers/*": ["./src/containers/*"],
       "@/styles/*": ["./src/styles/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/graphql/*": ["src/graphql/*"]
     }
   }
 }
