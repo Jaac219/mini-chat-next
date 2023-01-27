@@ -2,7 +2,7 @@ import 'tailwindcss/tailwind.css';
 import "@/styles/tail.css";
 import '@/styles/globals.css'
 import { ApolloProvider } from "@apollo/client";
-import client from "../../apollo-client";
+import client from 'apollo-client';
 import ServersContainer from '@/containers/ServersContainer';
 import { useRouter } from 'next/router';
 
